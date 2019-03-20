@@ -49,8 +49,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .dataset {
-        width: 50%;
-        margin: 0 auto;
-    }
+.dataset {
+    width: 50%;
+    margin: 0 auto;
+}
 </style>

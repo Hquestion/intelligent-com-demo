@@ -1,4 +1,7 @@
 const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     mode: 'production',
@@ -33,7 +36,13 @@ module.exports = {
         rules: [
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        css: ['vue-style-loader', {loader: 'css-loader'}],
+                        scss: ['vue-style-loader', {loader: 'sass-loader'}],
+                    }
+                }
             },
             {
                 test: /\.(jsx?|babel|es6)$/,
@@ -42,11 +51,15 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ['style-loader', "css-loader"]
+                use: ['vue-style-loader',"css-loader"]
             },
             {
                 test: /\.scss$/,
-                loader: ['style-loader', "sass-loader"]
+                use: ['vue-style-loader', "css-loader", "sass-loader"]
+            },
+            {
+                test: /\.sass$/,
+                use: ["style-loader", "sass-loader"]
             },
             {
                 test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
@@ -57,5 +70,10 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.ProgressPlugin(),
+        new HtmlWebpackPlugin(),
+        new VueLoaderPlugin()
+    ]
 };
