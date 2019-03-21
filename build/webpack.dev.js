@@ -1,27 +1,20 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const WebpackNodeExternals = require('webpack-node-externals');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    mode: 'production',
-    context: path.resolve(__dirname, '../packages'),
+    mode: 'development',
+    // context: path.resolve(__dirname, '../packages'),
     entry: {
-        dataset: './router.js'
+        main: './src/main.js'
     },
     output: {
         filename: "[name].js",
-        path: path.resolve(__dirname, '../lib'),
-        publicPath: "./lib/",
-        library: "Dataset",
-        libraryTarget: "commonjs2",
-        chunkFilename: "[id].js",
-        // libraryExport: "default"
+        path: path.resolve(__dirname, '../dist'),
+        publicPath: "",
+        chunkFilename: "[id].js"
     },
-    externals: [WebpackNodeExternals()],
     resolve: {
         extensions: ['.js', '.vue', '.json'],
         modules: ['node_modules']
@@ -67,11 +60,15 @@ module.exports = {
     },
     plugins: [
         new webpack.ProgressPlugin(),
-        new CleanWebpackPlugin(),
-        new BundleAnalyzerPlugin(),
-        new VueLoaderPlugin(),
-        new CopyWebpackPlugin([
-            {from: 'theme', to: 'theme'}
-        ])
-    ]
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        }),
+        new VueLoaderPlugin()
+    ],
+    devServer: {
+        contentBase: './dist',
+        port: 9988,
+        hot: true,
+        writeToDisk: true
+    }
 };

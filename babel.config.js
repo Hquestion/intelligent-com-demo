@@ -8,6 +8,8 @@ module.exports = function (api) {
         ]
     ];
     const plugins = [
+        "transform-vue-jsx",
+        "@babel/plugin-syntax-dynamic-import",
         [
             "component",
             {

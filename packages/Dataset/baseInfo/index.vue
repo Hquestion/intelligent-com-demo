@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import { Form, FormItem, Input, InputNumber } from 'element-ui';
 export default {
     name: 'BaseInfo',
     data() {
@@ -32,10 +31,7 @@ export default {
         };
     },
     components: {
-        [Form.name]: Form,
-        [FormItem.name]: FormItem,
-        [Input.name]: Input,
-        [InputNumber.name]: InputNumber
+
     }
 };
 </script>

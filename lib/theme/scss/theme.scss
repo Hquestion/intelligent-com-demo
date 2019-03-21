@@ -1,0 +1,7 @@
+$--sky-width: 50% !default;
+$--sky-marginTop: 0 !default;
+
+.sky-dataset {
+  width: $--sky-width;
+  margin: $--sky-marginTop auto 0;
+}

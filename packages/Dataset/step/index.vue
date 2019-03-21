@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import {Steps, Step} from 'element-ui';
 export default {
     name: 'StepBox',
     data() {
@@ -17,8 +16,7 @@ export default {
         };
     },
     components: {
-        [Steps.name]: Steps,
-        [Step.name]: Step
+
     },
     props: {
         active: {

@@ -1,5 +1,5 @@
 <template>
-    <div class="dataset">
+    <div class="sky-dataset">
         <Step ref="step" v-model="stepIndex"></Step>
         <component :is="comp"></component>
         <div>
@@ -14,7 +14,6 @@ import BaseInfo from './baseInfo';
 import Stack from './Stack';
 import Future from './Future';
 import Step from './step';
-import { Button } from 'element-ui';
 
 const StepMap = [BaseInfo.name, Stack.name, Future.name];
 export default {
@@ -29,8 +28,7 @@ export default {
         BaseInfo,
         Stack,
         Future,
-        Step,
-        [Button.name]: Button
+        Step
     },
     computed: {
         comp() {
@@ -49,8 +47,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dataset {
-    width: 50%;
-    margin: 0 auto;
-}
+
 </style>
