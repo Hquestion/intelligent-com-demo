@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const WebpackNodeExternals = require('webpack-node-externals');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const JsdocWebpackPlugin = require('jsdoc-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -72,6 +73,9 @@ module.exports = {
         new VueLoaderPlugin(),
         new CopyWebpackPlugin([
             {from: 'theme', to: 'theme'}
-        ])
+        ]),
+        new JsdocWebpackPlugin({
+            conf: './jsdoc.conf.json'
+        })
     ]
 };

@@ -1,3 +1,16 @@
-module.exports = [
-    
-];
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc","closure"]
+  },
+  "plugins": [
+    "node_modules/jsdoc-vuejs"
+  ],
+  "source": {
+    "includePattern": "\\.(vue|js)$"
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}
