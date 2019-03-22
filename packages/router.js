@@ -20,7 +20,7 @@ const routeCfg = [
 const registerObj = {
     cfg: routeCfg,
     register: router => {
-        router.addRoutes(routeCfg)
+        router.addRoutes(registerObj.cfg)
     }
 };
 

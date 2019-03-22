@@ -14,7 +14,7 @@ export default {
     methods: {
         toDataset() {
             this.$router.push({
-                name: 'dataset-list'
+                name: 'DatasetList'
             });
         }
     }
