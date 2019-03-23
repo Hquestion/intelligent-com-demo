@@ -29,12 +29,12 @@ import Dataset from './Dataset';
  */
 const routeCfg = [
     {
-        path: '/dataset-list',
+        path: 'dataset-list',
         name: 'DatasetList',
         component: DatasetList,
     },
     {
-        path: '/dataset-create',
+        path: 'dataset-create',
         name: 'Dataset',
         component: Dataset,
     }

@@ -4,9 +4,9 @@ import App from './App';
 import Dataset from '../lib/dataset';
 
 import router from './router';
-console.log(router);
-Dataset.register(router);
-console.log(Dataset);
+
+Dataset.register(router, '/home/tab-one');
+
 import './assets/app.scss';
 
 Vue.use(ElementUI);
