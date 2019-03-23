@@ -1,16 +1,58 @@
 {
+  "plugins": [
+    "node_modules/jsdoc-vuedoc",
+    "plugins/markdown",
+    "plugins/summarize",
+    "node_modules/better-docs/category"
+  ],
+  "jsdoc-vuedoc": {
+    "tag": "vuedoc"
+  },
+  "markdown": {
+    "tags": ["author", "classdesc", "class", "description", "param", "property", "returns", "see", "throws", "type", "version", "private", "ignore", "enum", "example", "namespace", "member", "category"],
+    "parser": "gfm",
+    "hardwrap": true
+  },
+  "recurseDepth": 10,
+  "source": {
+    "include": ["packages"],
+    "includePattern": ".+\\.(js|vue)$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "sourceType": "module",
   "tags": {
     "allowUnknownTags": true,
-    "dictionaries": ["jsdoc","closure"]
-  },
-  "plugins": [
-    "node_modules/jsdoc-vuejs"
-  ],
-  "source": {
-    "includePattern": "\\.(vue|js)$"
+    "dictionaries": ["jsdoc", "closure"]
   },
   "templates": {
     "cleverLinks": false,
-    "monospaceLinks": false
+    "monospaceLinks": false,
+    "default": {
+      "staticFiles": {
+        "include": [
+          "./docs/statics"
+        ]
+      }
+    },
+    "better-docs": {
+      "name": "Intelligent Component Documentation",
+      "logo": "./logo.png",
+      "trackingCode": "Loading...",
+      "navigation": [
+        {
+          "label": "Github",
+          "href": "https://github.com/Hquestion/intelligent-com-demo"
+        }
+      ]
+    }
+  },
+  "opts": {
+    "template": "node_modules/better-docs",
+    "encoding": "utf8",
+    "destination": "./docs/",
+    "recurse": true,
+    "readme": "README.md",
+    "private": false,
+    "lenient": true
   }
 }
